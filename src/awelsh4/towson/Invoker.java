@@ -21,8 +21,8 @@ public class Invoker {
 		commandList.add(new CMDDspMenu()); 
 	}
 	
-	public void submitOrder()
+	public void submitOrder(Tab tab)
 	{
-		commandList.add(new CMDDispTab());
+		commandList.add(new CMDDispTab(tab));
 	}
 }
