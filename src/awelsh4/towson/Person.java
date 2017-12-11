@@ -7,6 +7,7 @@ public class Person {
 	private String name;
 	private boolean order_status = false;
 	private String o;
+	private Table
 	
 	public Person ()
 	{
