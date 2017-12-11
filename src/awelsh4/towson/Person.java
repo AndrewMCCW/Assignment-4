@@ -2,27 +2,48 @@ package awelsh4.towson;
 import java.util.*;
 
 public class Person {
-	private ArrayList<OrderItem> orders;
+	private Orders orders;
 	private double total;
+	private String name;
+	private boolean order_status = false;
+	private String o;
 	
-	public Person (int table)
+	public Person ()
 	{
-		orders = new ArrayList<OrderItem>();
+		orders = new Orders();
 		this.total = 0.0;
 	}
 	
-	public void addOrder(OrderItem item)
+	public void addName(String name)
 	{
-		orders.add(item);
+		this.name = name; 
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public void addOrder(String desc)
+	{
+		order_status = true;
+		orders.addOrder(desc);
 	}
 	
 	public double getTotal()
 	{
-		for (OrderItem item : orders)
-		{
-			total += item.getPrice();
-		}
+		total = orders.getTotal();
 		return total;
+	}
+	
+	public String getOrders()
+	{
+		o = orders.getOrders();
+		return o;
+	}
+	public boolean getOrderStatus()
+	{
+		return order_status;
 	}
 	
 	

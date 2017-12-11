@@ -14,6 +14,7 @@ public class Lettuce implements Ingredient {
 	{
 		if (pieces > 0)
 		{
+			pieces--;
 			return instance;
 		}
 		

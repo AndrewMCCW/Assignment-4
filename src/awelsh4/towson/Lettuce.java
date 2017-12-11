@@ -1,8 +1,9 @@
 package awelsh4.towson;
 
-public class Lettuce implements Ingredients {
+public class Lettuce implements Ingredient {
 	private static int pieces = 50;
 	private static Lettuce instance = new Lettuce();
+	private String name = "Lettuce";
 	
 	private Lettuce()
 	{
@@ -13,6 +14,7 @@ public class Lettuce implements Ingredients {
 	{
 		if (pieces > 0)
 		{
+			pieces--;
 			return instance;
 		}
 		
@@ -22,5 +24,16 @@ public class Lettuce implements Ingredients {
 	@Override
 	public void sub(int amount) {
 		pieces = pieces - amount;
+	}
+	
+	@Override
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getAmount()
+	{
+		return "You have " + pieces + " pieces left of " + name;
 	}
 }

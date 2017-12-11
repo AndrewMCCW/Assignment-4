@@ -1,38 +1,50 @@
 package awelsh4.towson;
 import java.util.*;
+import awelsh4.towson.*;
 
-public class MenuItem {
-	private String name;
-	private String type;
+public class MenuItem implements Item {
+	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+	private String desc;
 	private double price;
-	private ArrayList<Ingredients> ingredients;
+	private String type;
 	
-	public MenuItem(String name, String type, double price)
+	public void addIngredient(Ingredient ingredient)
 	{
-		this.name = name;
-		this.type = type;
+		ingredients.add(ingredient);
+	}
+	
+	public void showIngredients()
+	{
+		for (Ingredient ingredient : ingredients) 
+		{
+			System.out.println(ingredient.getName());
+		}
+	}
+	
+	public void setInfo (String name, double price, String type)
+	{
+		this.desc = name; 
 		this.price = price;
-		this.ingredients = new ArrayList<Ingredients>();
+		this.type = type;
 	}
 	
-	public String getName()
-	{
-		return this.name;
-	}
-	
-	public String getType()
-	{
-		return this.type;
-	}
-	
+	@Override
 	public double getPrice()
 	{
-		return this.price;
+		return price;
 	}
 	
-	public ArrayList addIngredients()
+	@Override
+	public String getType()
 	{
-		ingredients.add(Ingredients.getInstance());
-		return this.ingredients;
+		return type;
 	}
+
+	@Override
+	public String getDesc() {
+		return desc;
+	}
+	
+	
+
 }

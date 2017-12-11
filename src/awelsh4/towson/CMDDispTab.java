@@ -1,6 +1,6 @@
 package awelsh4.towson;
 
-public class CMDDispTab implements CMD{
+public class CMDDispTab implements CMD {
 	private Tab tab;
 	
 	public CMDDispTab (Tab tab)

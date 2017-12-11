@@ -1,8 +1,10 @@
 package awelsh4.towson;
 
-public class Spinach implements Ingredients {
+public class Spinach implements Ingredient {
 	private static double lbs = 40.0;
+	private double oz;
 	private static Spinach instance = new Spinach();
+	private String name = "Spinach";
 	
 	private Spinach()
 	{
@@ -55,5 +57,18 @@ public class Spinach implements Ingredients {
 		case 16: lbs = lbs - 1;
 				break;
 		}
+	}
+	
+	@Override
+	public String getName()
+	{
+		return name;
+	}
+	
+	@Override
+	public String getAmount()
+	{
+		oz = lbs * 16.0;
+		return "You have " + lbs + " lbs" + "(" + oz + " ounces) left of " + name;
 	}
 }

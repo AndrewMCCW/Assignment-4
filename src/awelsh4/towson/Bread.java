@@ -1,8 +1,9 @@
 package awelsh4.towson;
 
-public class Bread implements Ingredients {
+public class Bread implements Ingredient {
 	private static int pieces = 50;
 	private static Bread instance = new Bread();
+	private String name = "Bread";
 	
 	private Bread()
 	{
@@ -22,5 +23,17 @@ public class Bread implements Ingredients {
 	@Override
 	public void sub(int amount) {
 		pieces = pieces - amount;
+	}
+	
+	@Override
+	public String getName()
+	{
+		return name;
+	}
+	
+	@Override
+	public String getAmount()
+	{
+		return "You have " + pieces + " pieces left of " + name;
 	}
 }

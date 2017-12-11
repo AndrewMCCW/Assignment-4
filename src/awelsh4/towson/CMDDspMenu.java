@@ -1,11 +1,14 @@
 package awelsh4.towson;
 
-public class CMDDspMenu implements CMD{
+public class CMDDspMenu implements CMD {
+	private Menu menu = new Menu();
+	
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
+		menu.populateMenu();
 		
+		System.out.println(menu.getMenu());
 	}
 
 }

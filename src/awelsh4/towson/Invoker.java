@@ -1,28 +1,26 @@
 package awelsh4.towson;
-import java.util.*;
 
 public class Invoker {
-	private ArrayList<CMD> commandList;
 	private final Aggregator agg;
+	private Person person;
 	
 	public Invoker(Aggregator agg)
 	{
 		this.agg = agg;
-		commandList = new ArrayList<CMD>();
 	}
 	
-	public void displayTab()
+	public void submitOrder()
 	{
-		commandList.add(new CMDSubmitOrder());
+		new CMDSubmitOrder(person).execute();
 	}
 	
 	public void displayMenu()
 	{
-		commandList.add(new CMDDspMenu()); 
+		new CMDDspMenu().execute(); 
 	}
 	
-	public void submitOrder(Tab tab)
+	public void displayTab(Tab tab)
 	{
-		commandList.add(new CMDDispTab(tab));
+		new CMDDispTab(tab).execute();
 	}
 }
