@@ -7,28 +7,30 @@ public class Person {
 	private String name;
 	private boolean order_status = false;
 	private String o;
-	private Table
+	private Tab tab;
 	
-	public Person ()
+	public Person (String name)
 	{
 		orders = new Orders();
 		this.total = 0.0;
+		this.name = name;
 	}
 	
-	public void addName(String name)
+	public void addTab(Tab tab)
 	{
-		this.name = name; 
+		this.tab = tab;
 	}
+	
 	
 	public String getName()
 	{
 		return name;
 	}
 	
-	public void addOrder(String desc)
+	public void addOrder(MenuItem item)
 	{
 		order_status = true;
-		orders.addOrder(desc);
+		orders.addOrder(item);
 	}
 	
 	public double getTotal()
@@ -42,10 +44,14 @@ public class Person {
 		o = orders.getOrders();
 		return o;
 	}
+	
 	public boolean getOrderStatus()
 	{
 		return order_status;
 	}
 	
-	
+	public Tab getTab()
+	{
+		return tab;
+	}
 }

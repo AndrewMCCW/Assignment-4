@@ -2,19 +2,14 @@ package awelsh4.towson;
 import java.util.*;
 
 public class Tab {
-	private ArrayList<Person> persons;
-	private String currentTab;
+	private ArrayList<Person> persons = new ArrayList<Person>();
+	private String currentTab = "";
 	private double entireTab = 0.0;
-	private String name = "Tab #";
-	private int count = 1;
+	private String name;
 	
-	Scanner reader = new Scanner(System.in);
-	
-	public Tab()
+	public Tab(String name)
 	{
-		name += count;
-		persons = new ArrayList<Person>();
-		count++;
+		this.name = name;
 	}
 	
 	public void addPerson(Person person)
@@ -27,30 +22,12 @@ public class Tab {
 		return name;
 	}
 	
-	public void getOrders ()
-	{
-		for (Person person : persons)
-		{
-			if (person.getOrderStatus() == false) 
-			{
-				System.out.println("(Waiter/Waitress) Would you like to order? ");
-				if(reader.nextLine().toLowerCase().equals("Yes".toLowerCase()))
-				{
-					
-					person.addOrder();
-				}
-			} else
-			{
-				System.out.println("(Waiter/Waitress) Would you like to order anything else? ");
-			}
-		}
-	}
 	
 	public String getTab()
 	{
 		for (Person person : persons)
 		{
-			currentTab += person + "'s total is " + person.getTotal() + "/n";
+			currentTab += person.getName() + "'s total is " + person.getTotal() + "\n";
 			entireTab = entireTab + person.getTotal();
 		}
 		currentTab += "Entire table's tab is: " + entireTab;

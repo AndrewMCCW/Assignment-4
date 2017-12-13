@@ -15,18 +15,34 @@ public class People {
 		return instance;
 	}
 	
-	public void addPerson(Person person)
+	public void addPerson(String name)
 	{
-		pir.add(person);
+		pir.add(new Person(name));
 	}
 	
 	public Person findPerson (String name)
 	{
-		for (Person person : pir)
+		String compare;
+		Person p;
+		for (int i = 0; i < pir.size(); i++)
 		{
-			if(person.getName().trim().toLowerCase().equals(name.trim().toLowerCase()));
-				return person;
+			p = pir.get(i);
+			compare = p.getName();
+			if (compare.equals(name))
+			{
+				return p;
+			}
 		}
 		return null;
+	}
+	
+	public String getPeople()
+	{
+		String s = "";
+		for (Person person : pir)
+		{
+			s += person.getName() + " is in the restaurant on " + person.getTab().getName() + "'s Tab" + "\n";
+		}
+		return s;
 	}
 }

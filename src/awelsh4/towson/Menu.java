@@ -35,8 +35,18 @@ public class Menu
 		String m = "";
 		for (MenuItem item : menu)
 		{
-			m += item.getDesc() + "/n";
+			m += item.getDesc() + "\n";
 		}
 		return m;
+	}
+	
+	public MenuItem getItem(String desc)
+	{
+		for (MenuItem item : menu)
+		{
+			if (item.getDesc().equals(desc))
+				return item;
+		}
+		return null;
 	}
 }

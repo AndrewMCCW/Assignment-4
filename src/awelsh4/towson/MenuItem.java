@@ -2,7 +2,7 @@ package awelsh4.towson;
 import java.util.*;
 import awelsh4.towson.*;
 
-public class MenuItem implements Item {
+public class MenuItem {
 	private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 	private String desc;
 	private double price;
@@ -18,6 +18,15 @@ public class MenuItem implements Item {
 		for (Ingredient ingredient : ingredients) 
 		{
 			System.out.println(ingredient.getName());
+			System.out.println(ingredient.getAmount());
+		}
+	}
+	
+	public void takeAway()
+	{
+		for (Ingredient ingredient : ingredients)
+		{
+			ingredient.sub(1);
 		}
 	}
 	
@@ -28,19 +37,18 @@ public class MenuItem implements Item {
 		this.type = type;
 	}
 	
-	@Override
+	
 	public double getPrice()
 	{
 		return price;
 	}
 	
-	@Override
+	
 	public String getType()
 	{
 		return type;
 	}
 
-	@Override
 	public String getDesc() {
 		return desc;
 	}

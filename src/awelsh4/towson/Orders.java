@@ -3,26 +3,26 @@ import java.util.*;
 
 public class Orders {
 
-	private ArrayList<OrderItem> orders;
+	private ArrayList<MenuItem> orders;
 	
 	
 	public Orders ()
 	{
-		orders = new ArrayList<OrderItem>();
+		orders = new ArrayList<MenuItem>();
 	}
 	
-	public void addOrder(String desc)
+	public void addOrder(MenuItem item)
 	{
 		
-		orders.add(order_item);
+		orders.add(item);
 	}
 	
 	public String getOrders()
 	{
-		String s = null; 
-		for (OrderItem order : orders)
+		String s = ""; 
+		for (MenuItem item : orders)
 		{
-			s += " ordered the " + order.getDesc() + " for: " + order.getPrice() + " /n";
+			s += " ordered the " + item.getDesc() + " for: " + item.getPrice() + "\n";
 		}
 		return s;
 	}
@@ -30,9 +30,9 @@ public class Orders {
 	public double getTotal()
 	{
 		Double total = 0.0;
-		for (OrderItem order : orders)
+		for (MenuItem item : orders)
 		{
-			total += order.getPrice();
+			total += item.getPrice();
 		}
 		return total;
 	}
